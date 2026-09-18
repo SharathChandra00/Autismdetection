@@ -3,6 +3,19 @@ import pandas as pd
 from asdmodel import ASDModel, SCALERS, CLASSIFIERS
 
 st.set_page_config(page_title="ASD Predictor", layout="centered")
+
+# Hide Streamlit Deploy button, top header, main menu, and footer
+hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    [data-testid="stHeader"] {visibility: hidden;}
+    .stDeployButton {display: none;}
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 st.title(" ASD Detection")
 
 uploaded_file = st.file_uploader(" Upload ASD Dataset (CSV)", type=["csv"])
